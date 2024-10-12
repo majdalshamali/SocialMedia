@@ -14,6 +14,10 @@ The project uses MySQL database with the following details:
 in the folder attached contain
 - PostMan Collection
 - Database Backup
+## Notes
+ - Java version 17
+ - in feed API (pageNum =0  return all elements)
+
 
 ## Author
 - Name: Majd Alshamali
