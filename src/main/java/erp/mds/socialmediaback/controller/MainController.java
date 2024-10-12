@@ -107,9 +107,13 @@ public class MainController {
     {
         Optional<Users> user = usersService.getUser();
         if(user.isPresent()){
-            Comment comment = commentService.save(commentDto,user.get());
-            return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(Mapper.toCommentDtoResponse(comment));
+            if(postService.get(commentDto.getPostId()).isPresent()) {
+                Comment comment = commentService.save(commentDto, user.get());
+                return ResponseEntity.status(HttpStatus.CREATED)
+                        .body(Mapper.toCommentDtoResponse(comment));
+            }else{
+                throw new ResourceNotFoundException("POSTs","POST ID",""+commentDto.getPostId());
+            }
 
         }else
         {
@@ -139,9 +143,14 @@ public class MainController {
     public ResponseEntity<ReactionDtoResponse> addReaction(@Valid @RequestBody ReactionDtoRequest reactionDto){
         Optional<Users> user = usersService.getUser();
         if(user.isPresent()){
-            Reaction reaction = reactionService.save(reactionDto,user.get());
-            return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(Mapper.toReactionDtoResponse(reaction));
+            if(postService.get(reactionDto.getPostId()).isPresent()) {
+                Reaction reaction = reactionService.save(reactionDto, user.get());
+                return ResponseEntity.status(HttpStatus.CREATED)
+                        .body(Mapper.toReactionDtoResponse(reaction));
+            }else
+            {
+                throw new ResourceNotFoundException("POSTs","POST ID",""+reactionDto.getPostId());
+            }
         }
         else
         {

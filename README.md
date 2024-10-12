@@ -17,6 +17,10 @@ in the folder attached contain
 ## Notes
  - Java version 17
  - in feed API (pageNum =0  return all elements)
+ - all the API docs in Swagger UI and in the code
+ - two Controller contain the tasks
+   - MainController
+   - Authentication Controller (registration + login/logout)
 
 
 ## Author
