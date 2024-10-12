@@ -256,7 +256,7 @@ public class MainController {
 
     @Operation(
             summary = "get feeds of posts  REST API",
-            description = "REST API to get feeds of posts inside Majd Social Media Back"
+            description = "REST API to get feeds of posts inside Majd Social Media Back (Page Num = 0 to return all Elements)"
     )
     @ApiResponses({
             @ApiResponse(
@@ -281,7 +281,7 @@ public class MainController {
     )
     @GetMapping("/posts")
     public ResponseEntity<List<PostDtoResponse>> postsFeed(@Valid @Param("keyword") String keyword,
-                                                           @Valid @Param("PageNum") @Min(value = 0, message = "postId should be greater or equal  0") Integer pageNum){
+                                                           @Valid @Param("PageNum") @Min(value = 0, message = "postId should be greater or equal  0 (0 return all elements)") Integer pageNum){
         if(pageNum < 0){
             throw new NotValidInputException("pagNum");
         }

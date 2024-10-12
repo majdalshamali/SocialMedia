@@ -40,6 +40,8 @@ public class PostService implements IPostService {
         Post post = Post.builder()
                 .text(postDto.getText())
                 .user(user)
+                .countOfComments(0)
+                .countOfLikes(0)
                 .build();
         return postRepository.save(post);
     }

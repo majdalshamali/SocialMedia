@@ -18,14 +18,12 @@ import lombok.NoArgsConstructor;
 )
 public class ReactionDtoRequest {
 
-    @NotEmpty(message = "Post ID can not be a null or empty")
     @Min(value = 0, message = "postId should be greater or equal  0")
     @Schema(
             description = "Post ID"
     )
     Integer postId;
 
-    @NotEmpty(message = "Reaction Type can not be a null or empty")
     @Schema(
             description = "Reaction Type Should be on of the values (LIKE,LOVE,DISLIKE)"
     )

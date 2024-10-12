@@ -18,7 +18,6 @@ import lombok.NoArgsConstructor;
 )
 public class CommentDtoRequest {
 
-    @NotEmpty(message = "Post ID can not be a null or empty")
     @Min(value = 0, message = "postId should be greater or equal  0")
     @Schema(
             description = "Post ID"

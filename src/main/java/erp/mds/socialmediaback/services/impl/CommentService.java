@@ -41,7 +41,7 @@ public class CommentService implements ICommentService {
             return commentDtoResponsesList;
         }
         else {
-            throw new ResourceNotFoundException("POST","POST ID",""+postId);
+            throw new ResourceNotFoundException("Comments","POST ID",""+postId);
         }
     }
 

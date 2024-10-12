@@ -39,8 +39,8 @@ public class Mapper {
                 .createdBy(post.getCreatedBy())
                 .createdAt(post.getCreatedAt())
                 .text(post.getText())
-                .countOfComments(post.getComments().size())
-                .countOfLikes(post.getReactions().size())
+                .countOfComments(post.getComments()!= null ?post.getComments().size():0)
+                .countOfLikes(post.getReactions()!= null ? post.getReactions().size():0)
                 .build();
     }
 
